@@ -1,0 +1,211 @@
+@charset "utf-8";
+
+/* font-family settings */
+@font-face {
+  font-family: "NanumSquareB";
+  src: url("../fonts/NanumSquareB.eot");
+  src: local("NanumSquareB"), url("../fonts/NanumSquareB.woff") format("woff"), url("../fonts/NanumSquareB.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "NanumSquareR";
+  src: url("../fonts/NanumSquareR.eot");
+  src: local("NanumSquareR"), url("../fonts/NanumSquareR.woff") format("woff"), url("../fonts/NanumSquareR.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "NanumSquareRoundB";
+  src: url("../fonts/NanumSquareRoundB.eot");
+  src: local("NanumSquareRoundB"), url("../fonts/NanumSquareRoundB.woff") format("woff"), url("../fonts/NanumSquareRoundB.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "NanumSquareRoundR";
+  src: url("../fonts/NanumSquareRoundR.eot");
+  src: local("NanumSquareRoundR"), url("../fonts/NanumSquareRoundR.woff") format("woff"), url("../fonts/NanumSquareRoundR.ttf") format("truetype");
+}
+
+
+/* basic element form settings */
+
+  //폰트 패밀리 Mixin 설정
+
+  @mixin font_NanumR($font_size:20px) {
+    $font_name:"NanumSquareR";
+
+    font-family: $font_name;
+    font-size: $font_size;
+  }
+
+  @mixin font_NanumB($font_size:20px) {
+    $font_name:"NanumSquareB";
+
+    font-family: $font_name;
+    font-size: $font_size;
+  }
+
+  @mixin font_NanumRR($font_size:20px) {
+    $font_name:"NanumSquareRoundR";
+
+    font-family: $font_name;
+    font-size: $font_size;
+  }
+
+
+
+
+
+body {
+    padding: 0px;
+    margin:0px;
+    background-color: rgb(0, 0, 0);
+
+    h1 {
+        color: rgb(122, 159, 190);
+        @include font_NanumB(2rem);
+    }
+
+    color: #ffffff;
+
+    video {
+        width: 100%;
+    }
+
+    .bg-box {
+        width: 100%;
+        overflow: hidden;
+        margin: 0px auto;
+        position: relative;
+    }
+
+    .talk-area {
+        position: absolute;
+        top:10%;
+        left:30%;
+        width: 70%;
+        text-align: center;
+
+        .start {
+            
+            p {
+                text-align: center;
+                color: rgb(183, 200, 255);
+                @include font_NanumB(5rem);
+                background: #000000;
+                border: solid 2px #4f5a8d;
+                border-radius: 15px;
+                padding: 15px;
+                margin: 10px;
+                font-style: italic;
+            }
+
+            .btn-start {
+                margin-top: 35%;
+                width: 500px;
+                @include font_NanumB(5rem);
+                padding: 20px;
+                border: solid 4px #000000;
+                border-radius: 20px;
+                color: brown;
+                background-color: #ffffff;
+                box-shadow: 2px 2px #000000;
+            }
+
+        }
+
+        .play {
+            
+        }
+
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+
+.intro {
+    margin-left: 10%;
+    text-align: center;
+
+    p {
+        @include font_NanumB(4rem); 
+        background-color: #000000;
+        width: 70%;
+        margin-left: 8%;
+    }   
+
+    
+    .btn-next {
+        @include font_NanumB(2rem);
+        padding: 20px;
+        border: solid 4px #000000;
+        border-radius: 20px;
+        color: brown;
+        background-color: #ffffff;
+        box-shadow: 2px 2px #000000;
+        margin-left: -15%;
+    }
+
+}
+
+.talk {
+    width: 80%;
+    background-color: #ffffff;
+    color: #000000;
+    @include font_NanumB(5rem);
+    border: solid 4px #000000;
+    border-radius: 20px;
+    padding: 40px;
+}
+
+.play {
+    margin-left: 10%;
+    text-align: center;
+
+    .chance {
+        @include font_NanumB(4rem); 
+        background-color: #000000;
+        width: 70%;
+        margin-left: 8%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .record {
+        text-align: left;
+        @include font_NanumB(3rem); 
+        background-color: #000000;
+        width: 60%;
+        margin-left:13%;
+        margin-top: 30%;
+        margin-bottom: 20px;
+        padding: 10px;
+    }
+
+    .input_ans {
+        @include font_NanumB(4rem); 
+        width: 25%;
+        height: 150px;
+        margin-left: -12%;
+        text-align: center;
+    }    
+
+    .play_btn_box {
+        margin-left: -12%;
+
+        .btn-ans {
+            @include font_NanumB(2rem);
+            padding: 20px;
+            border: solid 4px #000000;
+            border-radius: 20px;
+            color: brown;
+            background-color: #ffffff;
+            box-shadow: 2px 2px #000000;
+            margin:10px;
+        }
+    }
+
+
+}
