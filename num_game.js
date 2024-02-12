@@ -96,7 +96,7 @@ function play() {
         resultArea.textContent = "Down!!!!"
         userInput.value="";
     } else {
-        resultArea.textContent = "정답!";
+        resultArea.textContent = "정답!! 정말 맞출지는 몰랐는데!!";
         playButton.disabled = true;
         return
     }
