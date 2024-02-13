@@ -155,3 +155,8 @@ body .talk-area .start .btn-start {
   box-shadow: 2px 2px #000000;
   margin: 10px;
 }
+.play .play_btn_box .btn-ans:disabled {
+  background-color: #858585;
+  color: rgb(187, 107, 107);
+  border: solid 4px #4d4d4d;
+}

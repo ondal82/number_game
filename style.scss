@@ -203,8 +203,14 @@ body {
             color: brown;
             background-color: #ffffff;
             box-shadow: 2px 2px #000000;
-            margin:10px;
+            margin:10px;         
         }
+
+        .btn-ans:disabled {
+            background-color: #858585;
+            color: rgb(187, 107, 107);
+            border: solid 4px #4d4d4d;
+        }   
     }
 
 
