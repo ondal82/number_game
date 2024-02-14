@@ -100,12 +100,23 @@ function play() {
     chanceArea.textContent = `남은 기회: ${chances}`;
 
     if (userValue < randomNum) {
-        resultArea.textContent = `UP!!!! 통 크게 불러봐!`;
+        if (randomNum - userValue > 20) {
+            resultArea.textContent = `UP!!!! 통 크게 불러봐!`;    
+        } else if (randomNum - userValue > 10) {
+            resultArea.textContent = `UP! 좀 더 큰 수야.`;    
+        } else {
+            resultArea.textContent = `UP. 잘 생각해 보라고.`;
+        }        
         userInput.value="";
         upDown = "↑";
-
     } else if (userValue > randomNum){
-        resultArea.textContent = `Down!!!! 더 작은 수라고.`;
+        if (userValue - randomNum > 20) {
+            resultArea.textContent = `Down!!!! 한참 멀었어!`;
+        } else if (userValue - randomNum > 10) {
+            resultArea.textContent = `Down! 좀 더 작은 수야.`;
+        } else {
+            resultArea.textContent = `Down. 다음 번엔 맞출 수 있겠지?`;
+        }
         userInput.value="";
         upDown = "↓";
     } else {
