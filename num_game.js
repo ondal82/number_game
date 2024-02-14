@@ -13,6 +13,8 @@ let inputRecord = [] ;
 
 let recordText = "";
 
+let upDown = "";
+
 // html elemenet 연결
 
 
@@ -45,9 +47,17 @@ nextButton3.addEventListener("click",next);
 gameButton.addEventListener("click",game);
 playButton.addEventListener("click",play);
 resetButton.addEventListener("click",reset);
+
+
 userInput.addEventListener("focus",function(){
     userInput.value="";
 });
+
+userInput.addEventListener('keyup', function(e){
+    if(e.key == 'Enter'){
+        play()
+    }
+})
 
 // ---- functions ----
 
@@ -77,12 +87,12 @@ function play() {
     let userValue = userInput.value;
 
     if (userValue < 1 || userValue > 100){
-        resultArea.textContent = "1에서 100 사이라고 말한 것 못들었어?";
+        resultArea.textContent = `1에서 100 사이라고 말한 것 못 들었어?`;
         return
     }
 
     if (inputRecord.includes(userValue)) {
-        resultArea.textContent = `${userValue}은(는) 이미 말했어. 다른 숫자를 말하라고`;
+        resultArea.textContent = `${userValue}은 이미 말했어. 다른 숫자를 말하라고`;
         return
     }
 
@@ -90,25 +100,31 @@ function play() {
     chanceArea.textContent = `남은 기회: ${chances}`;
 
     if (userValue < randomNum) {
-        resultArea.textContent = "UP!!!!"
+        resultArea.textContent = `UP!!!! 통 크게 불러봐!`;
         userInput.value="";
+        upDown = "↑";
+
     } else if (userValue > randomNum){
-        resultArea.textContent = "Down!!!!"
+        resultArea.textContent = `Down!!!! 더 작은 수라고.`;
         userInput.value="";
+        upDown = "↓";
     } else {
-        resultArea.textContent = "정답!! 정말 맞출지는 몰랐는데!!";
+        resultArea.textContent = `정답!! 정말 맞출지는 몰랐는데!!`;
         playButton.disabled = true;
+        upDown = "★";
+        inputRecord.push(userValue + upDown);
+        recordArea.textContent = `지난 입력값 :  ${inputRecord}`;
         return
-    }
+    };
+
+    inputRecord.push(userValue + upDown);
+    recordArea.textContent = `지난 입력값 :  ${inputRecord}`;
 
     if ( chances == 0) {
         resultArea.textContent = `Game Over! 정답은 ${randomNum}였어.`;
         playButton.disabled = true;
-    }
+    };
 
-    inputRecord.push(userValue);
-
-    recordArea.textContent = `지난 입력값: ${inputRecord}`;
 };
 
 function reset() {
@@ -116,9 +132,9 @@ function reset() {
     pickRandomNum();
     chances = 5;
     gameOver = false;
-    resultArea.textContent = "좋아. 다시 한번 도전해봐";
+    resultArea.textContent = `좋아. 다시 한번 도전해봐`;
     chanceArea.textContent = `남은 기회: ${chances}`;
-    recordArea.textContent = "지난 입력값:";
+    recordArea.textContent = "지난 입력값 :  ";
     playButton.disabled = false;
     inputRecord = [] ;
 };

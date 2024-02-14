@@ -30,27 +30,33 @@
 
   //폰트 패밀리 Mixin 설정
 
-  @mixin font_NanumR($font_size:20px) {
-    $font_name:"NanumSquareR";
+    @mixin font_NanumR($font_size:20px) {
+        $font_name:"NanumSquareR";
 
-    font-family: $font_name;
-    font-size: $font_size;
-  }
+        font-family: $font_name;
+        font-size: $font_size;
+    }
 
-  @mixin font_NanumB($font_size:20px) {
-    $font_name:"NanumSquareB";
+    @mixin font_NanumB($font_size:20px) {
+        $font_name:"NanumSquareB";
 
-    font-family: $font_name;
-    font-size: $font_size;
-  }
+        font-family: $font_name;
+        font-size: $font_size;
+    }
 
-  @mixin font_NanumRR($font_size:20px) {
-    $font_name:"NanumSquareRoundR";
+    @mixin font_NanumRR($font_size:20px) {
+        $font_name:"NanumSquareRoundR";
 
-    font-family: $font_name;
-    font-size: $font_size;
-  }
+        font-family: $font_name;
+        font-size: $font_size;
+    }
 
+.btn-start, .btn-next, .btn-ans, {
+    &:hover{
+        opacity: 0.7;
+        cursor: pointer;
+    }
+}
 
 
 
@@ -60,9 +66,15 @@ body {
     margin:0px;
     background-color: rgb(0, 0, 0);
 
+    a {
+        color: rgb(122, 159, 190);
+        text-decoration: none !important;
+    }
+
     h1 {
         color: rgb(122, 159, 190);
-        @include font_NanumB(2rem);
+        @include font_NanumB(1.7vw);
+        text-decoration: none !important;
     }
 
     color: #ffffff;
@@ -82,27 +94,33 @@ body {
         position: absolute;
         top:10%;
         left:30%;
-        width: 70%;
+        width:70%;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content:center;
         text-align: center;
 
         .start {
+            height: 80vh;
             
             p {
                 text-align: center;
                 color: rgb(183, 200, 255);
-                @include font_NanumB(5rem);
+                @include font_NanumB(4vw);
                 background: #000000;
                 border: solid 2px #4f5a8d;
                 border-radius: 15px;
-                padding: 15px;
-                margin: 10px;
+                padding: 40px 15px;
+                margin: 5%;
                 font-style: italic;
+                border-radius: 10px;
             }
 
             .btn-start {
-                margin-top: 35%;
+                margin-top: 25%;
                 width: 500px;
-                @include font_NanumB(5rem);
+                @include font_NanumB(3vw);
                 padding: 20px;
                 border: solid 4px #000000;
                 border-radius: 20px;
@@ -112,98 +130,125 @@ body {
             }
 
         }
-
-        .play {
-            
-        }
-
     }
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 
 .intro {
     margin-left: 10%;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    // align-items: center;
+    text-align: center; 
+    width: 80%;
 
     p {
-        @include font_NanumB(4rem); 
+        @include font_NanumB(2.5vw); 
         background-color: #000000;
-        width: 70%;
-        margin-left: 8%;
+        border-radius: 10px;
+        margin: 20px 8%;
+        padding: 5px;
     }   
-
     
     .btn-next {
-        @include font_NanumB(2rem);
+        @include font_NanumB(2vw);
         padding: 20px;
         border: solid 4px #000000;
         border-radius: 20px;
         color: brown;
         background-color: #ffffff;
         box-shadow: 2px 2px #000000;
-        margin-left: -15%;
+        margin-top: 50px;
+        margin-right: 20px;
     }
-
 }
 
 .talk {
-    width: 80%;
+    position: relative;
     background-color: #ffffff;
     color: #000000;
-    @include font_NanumB(5rem);
+    @include font_NanumB(3.1vw);
     border: solid 4px #000000;
     border-radius: 20px;
-    padding: 40px;
+    padding: 40px 60px;
+    margin: 10px 0 40px;
+    min-width: 650px;
+    line-height: 140%;
+    letter-spacing: -1px;
+
+    &::before {
+        position: absolute;
+        left:-48px;
+        bottom: 40px;
+        content: "";
+        background-color: transparent;
+        width: 0px;
+        height: 0px;
+        border-right: solid 24px #ffffff;
+        border-bottom: solid 24px #ffffff;
+        border-top: solid 24px transparent;
+        border-left: solid 24px transparent;
+        box-shadow: 0px 4px 0px #000000;
+    }
+
+    &::after {
+        position: absolute;
+        left:-36px;
+        bottom: 1px;
+        content: "";
+        background-color: transparent;
+        width: 70px;
+        height: 70px;
+        border-top: solid 4px #000000;
+        rotate: -45deg;
+    }
+
 }
 
 .play {
-    margin-left: 10%;
-    text-align: center;
+    margin: 0 8%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center; 
+    height: 80vh;
+    min-height: 780px;
 
     .chance {
-        @include font_NanumB(4rem); 
+        @include font_NanumB(2.5vw); 
         background-color: #000000;
-        width: 70%;
-        margin-left: 8%;
-        margin-top: 20px;
-        margin-bottom: 20px;
-    }
-
-    .record {
-        text-align: left;
-        @include font_NanumB(3rem); 
-        background-color: #000000;
-        width: 60%;
-        margin-left:13%;
-        margin-top: 30%;
-        margin-bottom: 20px;
-        padding: 10px;
+        border-radius: 10px;
+        padding: 10px 25px;
     }
 
     .input_ans {
-        @include font_NanumB(3.5rem); 
-        width: 30%;
-        height: 150px;
-        margin-left: -12%;
+        @include font_NanumB(2vw);
+        color: #252e61;
+        min-height: 150px;
+        width: 450px;
+        margin-top: 30px;
         text-align: center;
-    }    
+        border-radius: 20px;
+        border: solid 12px #252e61;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    }
 
     .play_btn_box {
-        margin-left: -12%;
 
         .btn-ans {
-            @include font_NanumB(2rem);
+            @include font_NanumB(1.5vw);
             padding: 20px;
             border: solid 4px #000000;
             border-radius: 20px;
             color: brown;
             background-color: #ffffff;
             box-shadow: 2px 2px #000000;
-            margin:10px;         
+            margin:10px;
         }
 
         .btn-ans:disabled {
@@ -214,4 +259,23 @@ body {
     }
 
 
+}
+
+.record {
+    position: absolute;
+    text-align: left;
+    @include font_NanumB(2vw); 
+    background-color: #000000;
+    min-width: 45%;
+    bottom: 0;
+    padding: 20px 30px;
+    border-radius: 10px;
+    color:#dadada;
+    font-style: italic;
+    margin-left: 2%;
+    word-spacing: 10px;
+}
+
+i {
+    color: red;
 }
